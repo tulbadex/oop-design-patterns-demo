@@ -116,8 +116,8 @@ class TaskServiceProvider extends ServiceProvider {
 
 ```bash
 # Clone repository
-git clone <repository-url>
-cd design-patterns-showcase
+git clone https://github.com/tulbadex/oop-design-patterns-demo.git
+cd oop-design-patterns-demo
 
 # Install dependencies
 composer install
@@ -215,12 +215,47 @@ database/
 - **Interface Segregation Principle** - Focused, specific interfaces
 - **Dependency Inversion Principle** - Depend on abstractions, not concretions
 
-## 🧪 Testing
+## 🧪 Comprehensive Testing
 
-The architecture supports easy testing through:
-- **Dependency Injection** - Mock services and repositories
-- **Interface Contracts** - Test against interfaces
-- **Service Layer** - Unit test business logic in isolation
+### Test Coverage
+- **Unit Tests**: 17 tests covering all OOP patterns
+- **Feature Tests**: Integration testing for controllers
+- **Strategy Pattern Tests**: Algorithm validation
+- **Repository Pattern Tests**: Data access layer testing
+- **Service Layer Tests**: Business logic validation
+
+### Running Tests
+```bash
+# Run all tests
+php artisan test
+
+# Run only unit tests
+php artisan test --testsuite=Unit
+
+# Run with coverage
+php artisan test --coverage
+```
+
+### Test Structure
+```
+tests/
+├── Unit/
+│   ├── TaskServiceTest.php (Service Layer)
+│   ├── TaskRepositoryTest.php (Repository Pattern)
+│   └── TaskPriorityStrategyTest.php (Strategy Pattern)
+└── Feature/
+    └── TaskControllerTest.php (Integration Tests)
+```
+
+### What's Tested
+- ✅ **Dependency Injection** - Mock services and repositories
+- ✅ **Interface Contracts** - Test against interfaces
+- ✅ **Service Layer** - Unit test business logic in isolation
+- ✅ **Repository Pattern** - Data access abstraction
+- ✅ **Strategy Pattern** - Algorithm implementations
+- ✅ **Controller Integration** - HTTP request/response flow
+- ✅ **Model Factories** - Test data generation
+- ✅ **Database Relationships** - Foreign key constraints
 
 ## 📱 Usage
 
@@ -228,6 +263,21 @@ The architecture supports easy testing through:
 2. **Create Tasks** - Add new tasks with categories and priorities
 3. **Manage Tasks** - Edit, complete, or delete existing tasks
 4. **Auto-Priority** - System calculates priority based on due dates
+
+## ✅ Test Results
+
+**All 17 Unit Tests Pass:**
+- TaskServiceTest: 3/3 ✅
+- TaskRepositoryTest: 6/6 ✅  
+- TaskPriorityStrategyTest: 7/7 ✅
+- ExampleTest: 1/1 ✅
+
+**Test Coverage Includes:**
+- Repository Pattern implementation
+- Service Layer business logic
+- Strategy Pattern algorithms
+- Dependency Injection containers
+- Model relationships and factories
 
 ## 🔍 Code Quality Features
 

@@ -6,10 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use App\Observers\TaskObserver;
 use Illuminate\Database\Eloquent\Attributes\ObservedBy;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 #[ObservedBy([TaskObserver::class])]
 class Task extends Model
 {
+    use HasFactory;
     protected $fillable = [
         'title',
         'description',
